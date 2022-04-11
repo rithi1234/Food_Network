@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- google font added -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <!-- css file added -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- bootstrap added -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <title>django</title>
+    <script src="https://kit.fontawesome.com/f5e76c1334.js" crossorigin="anonymous"></script>
+</head>
+<body>
+     <!-- <img src="{% static 'images/django.png' %}" alt="">  -->
+    <header> 
+      <!-- navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-3 mx-3 mb-lg-0">
+                  <li class="nav-item ">
+                    <a class="nav-link active" aria-current="page" href="{% url 'webpage1'%}">Home</a>
+                  </li>
+                  <li class="nav-item ">
+                    <a class="nav-link active" aria-current="page" href="{% url 'webpage2'%}">Breakfast</a>
+                  </li>
+                  <li class="nav-item ">
+                    <a class="nav-link active" aria-current="page" href="{% url 'webpage3'%}">Lunch</a>
+                  </li>
+                  <li class="nav-item ">
+                    <a class="nav-link active" aria-current="page" href="{% url 'webpage4'%}">Dinner</a>
+                  </li>
+                  <li class="nav-item ">
+                    <a class="nav-link active" aria-current="page" href="{% url 'webpage5'%}">Order</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </nav>
+    </header>
+    <br><br>
+  <main>
+    
+    
+    <!-- order form -->
+{% block content %}    
+  <section class="cfrom">
+    <div class="mt-5 px-5 container justify-content-center align-items-center">
+      <form action="" method="POST" class="form-group mr-auto ml-auto ">
+        {% csrf_token %}
+        <br><br>
+        <h3 class="text-center"> Order form </h3>
+        <input type="text" name="food_id" class="form-control" id="food_id" placeholder=" Enter food id" required> <br>
+
+        <input type="number" name="customer_id" class="form-control" id="customer_id" placeholder=" Enter your customer id" required> <br>
+
+        <input type="number" name="food_quantity" class="form-control" id="food_quantity" placeholder=" Enter your how many food want to order" required> <br>
+        <input type="text" name="food_category" class="form-control" id="food_category" placeholder="Breakfast lunch or dinner? " required> <br>
+        <input type="number" name="total_price_taka" class="form-control" id="total_price_taka" placeholder=" Enter price of food" required> <br>
+        <input type="text" name="order_location" class="form-control" id="order_location" placeholder=" Enter your location" required> <br>
+        <input type="text" name="order_status" class="form-control" id="order_status" placeholder="Confirm your order? confirm/not confirm " required> <br>
+        <!-- submit button -->
+        <input type="submit"  class="btn btn-info form-control" value="Submit">
+    </form>
+    <br><br>
+    </div>
+  </section>
+{% endblock %}
+
+  </main>
+  <br><br>
+    <!-- footer -->
+    <footer class="d-flex justify-content-center align-items-center p-3">
+      <div>
+          <h1 class="clr"> Food Network </h1> <br> 
+          <p class="align-center color-orange"> Eat healthy to live healthy. Live healthy to live healthy. </p>
+          <br> <br>
+      </div>
+    </footer>
+    <!-- bootstrap js file added -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"> </script>
+</body>
+</html>
